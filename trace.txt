@@ -4,3 +4,5 @@ Noeud 2 : 1
 Noeud 3 : 2
 Noeud 4 : 2
 Noeud 5 : 0
+
+Numero de sommet sans predecesseur : 5

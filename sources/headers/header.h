@@ -68,6 +68,7 @@ LADJ    inverse(LADJ);
 //main.c
 bool topologicalMarking(LADJ*);
 LADJ load_graph(char*);
+void displayList(QUEUE*);
 
 //queue.c
 QUEUE   add(ELEMENT, QUEUE);
