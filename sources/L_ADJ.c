@@ -3,7 +3,7 @@
 
 #include "headers/header.h"
 
-int main(int argc, char** argv) {
+/*int main(int argc, char** argv) {
     LADJ graph, graph_inverse;
 
     if (argc != 2) {
@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     affiche_graphe(graph_inverse);
 
     return 0;
-}
+}*/
 
 CELL* creer_cellule(int extr, int val, CELL* suiv) {
     CELL* p;
@@ -72,9 +72,8 @@ void affiche_graphe(LADJ graph) {
 
 LADJ charge_graphe(char* nom_fichier) {
     LADJ graph;
-    int nsom, nar;
+    int nsom, nar, i, ori, ext, val;
     FILE* fp;
-    int i, ori, ext, val;
     CELL* p;
 
     fp = fopen(nom_fichier, "rt");
@@ -85,6 +84,7 @@ LADJ charge_graphe(char* nom_fichier) {
     
     fscanf(fp, "%d %d", &nsom, &nar);
     graph = init_ladj(nsom, nar);
+    graph.predNumber = (int*) calloc(nsom, sizeof(int));
     
     for (i = 0; i < nar; i++) {
         fscanf(fp, "%d %d %d", &ori, &ext, &val);
@@ -116,7 +116,6 @@ LADJ inverse(LADJ graph) {
     
     return graph_inverse;
 }
-
 
 /*******************************************************************************
 Trace d'execution sur le fichier :

@@ -3,7 +3,7 @@
 #include "headers/header.h"
 
 QUEUE newEmptyQueue(void) {
-    QUEUE queue = {NULL, NULL};
+    QUEUE queue = {0, NULL, NULL};
     return queue;
 }
 
@@ -32,6 +32,7 @@ QUEUE add(ELEMENT element, QUEUE queue) {
         queue.tail = queue.tail->next = cell; /* la cellule créée est la nouvelle queue	*/
     }
     
+    queue.size += 1;
     return queue;
 }
 
@@ -51,7 +52,8 @@ QUEUE get(QUEUE queue)
     }
 
     free(cell);
-
+    queue.size -= 1;
+    
     return queue;
 }
 
@@ -73,7 +75,8 @@ ELEMENT add_2(QUEUE* queue) /* ATTENTION: la File est modifiée */
     }
 
     free(cell);
-
+    queue->size += 1;
+    
     return element;
 }
 
@@ -85,6 +88,7 @@ void concat(QUEUE* firstQueue, QUEUE* secondQueue) {
         firstQueue->tail = secondQueue->tail;
     }
 
+    firstQueue->size += secondQueue->size;
     *secondQueue = newEmptyQueue();
 }
 

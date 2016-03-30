@@ -8,7 +8,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <stdbool.h>
 
+#define WHITE           1
+#define GREY            0
+#define BLACK           -1
 #define MAXSOMMET       250
 #define MAXVALUATION    20.0
 #define MAXSUCC         10
@@ -22,11 +26,14 @@ typedef struct CELL {
 } CELL;
 
 typedef struct LADJ /* listes d'adjacence */ {
-    int nbsom, nbar;
+    int nbsom;
+    int nbar;
     CELL** tab;
+    int* predNumber;
 } LADJ;
 
 typedef struct QUEUE {
+    int size;
     CELL* head;
     CELL* tail;
 } QUEUE;
@@ -59,6 +66,8 @@ LADJ    init_ladj(int, int);
 LADJ    inverse(LADJ);
 
 //main.c
+bool topologicalMarking(LADJ*);
+LADJ load_graph(char*);
 
 //queue.c
 QUEUE   add(ELEMENT, QUEUE);
