@@ -7,16 +7,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef int ELEMENT;
+
 typedef struct CELL {
-    int extremite;
-    int valuation;
-    struct CELL* suivant;
+    int extremity;
+    int value;
+    struct CELL* next;
 } CELL;
 
 typedef struct LADJ /* listes d'adjacence */ {
     int nbsom, nbar;
     CELL** tab;
 } LADJ;
+
+typedef struct QUEUE {
+    CELL* head;
+    CELL* tail;
+} QUEUE;
 
 //L_ADJ.c
 void affiche_graphe(LADJ);

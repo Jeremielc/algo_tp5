@@ -27,17 +27,17 @@ CELL* creer_cellule(int extr, int val, CELL* suiv) {
         exit(-1);
     }
 
-    p->extremite = extr;
-    p->valuation = val;
-    p->suivant = suiv;
+    p->extremity = extr;
+    p->value = val;
+    p->next = suiv;
 
     return p;
 }
 
 void affiche_liste(CELL* p) {
     while (p) {
-        printf("<%d-%d>\t", p->extremite, p->valuation);
-        p = p->suivant;
+        printf("<%d-%d>\t", p->extremity, p->value);
+        p = p->next;
     };
     
     printf("\n");
@@ -107,9 +107,9 @@ LADJ inverse(LADJ graph) {
         p = graph.tab[i];
         
         while (p) {
-            q = creer_cellule(i, p->valuation, graph_inverse.tab[p->extremite]);
-            graph_inverse.tab[p->extremite] = q; /* on empile */
-            p = p->suivant;
+            q = creer_cellule(i, p->value, graph_inverse.tab[p->extremity]);
+            graph_inverse.tab[p->extremity] = q; /* on empile */
+            p = p->next;
         }
     }
     
