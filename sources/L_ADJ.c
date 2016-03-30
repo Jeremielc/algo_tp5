@@ -3,10 +3,11 @@
 
 #include "headers/header.h"
 
-int main(int argc, char* *argv) {
+int main(int argc, char** argv) {
     LADJ graph, graph_inverse;
 
     if (argc != 2) {
+        printf("Veuillez specifier un fichier de graphe.");
         exit(-1);
     }
 

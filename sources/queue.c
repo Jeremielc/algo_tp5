@@ -22,7 +22,7 @@ ELEMENT getHead(QUEUE queue)
 }
 
 QUEUE add(ELEMENT element, QUEUE queue) {
-    CELL *cell = (CELL*) malloc(sizeof (CELL));
+    CELL* cell = (CELL*) malloc(sizeof (CELL));
     cell->value = element;
     cell->next = NULL;
 
@@ -35,30 +35,30 @@ QUEUE add(ELEMENT element, QUEUE queue) {
     return queue;
 }
 
-QUEUE get(QUEUE f)
+QUEUE get(QUEUE queue)
 /* ATTENTION: supprimer la tête d'une File vide n'a pas de sens */ {
-    CELL *cell = f.head;
+    CELL* cell = queue.head;
     
-    if (isEmpty(f)) {
+    if (isEmpty(queue)) {
         printf("Error - The queue is empty\n");
         exit(-1);
     }
 
-    if (f.head == f.tail) {
-        f = newEmptyQueue(); /* la File n'avait plus qu'une seule cellule */
+    if (queue.head == queue.tail) {
+        queue = newEmptyQueue(); /* la File n'avait plus qu'une seule cellule */
     } else {
-        f.head = f.head->next; /* la queue ne change pas */
+        queue.head = queue.head->next; /* la queue ne change pas */
     }
 
     free(cell);
 
-    return f;
+    return queue;
 }
 
-ELEMENT add_2(QUEUE *queue) /* ATTENTION: la File est modifiée */
+ELEMENT add_2(QUEUE* queue) /* ATTENTION: la File est modifiée */
 /* ATTENTION: supprimer la tête d'une File vide n'a pas de sens */ {
     ELEMENT element;
-    CELL *cell = queue->head;
+    CELL* cell = queue->head;
 
     if (isEmpty(*queue)) {
         printf("Error - The queue is empty\n");
@@ -77,7 +77,7 @@ ELEMENT add_2(QUEUE *queue) /* ATTENTION: la File est modifiée */
     return element;
 }
 
-void concat(QUEUE *firstQueue, QUEUE *secondQueue) {
+void concat(QUEUE* firstQueue, QUEUE* secondQueue) {
     if (firstQueue->head == NULL) {
         *firstQueue = *secondQueue;
     } else if (secondQueue->head != NULL) {
@@ -89,7 +89,7 @@ void concat(QUEUE *firstQueue, QUEUE *secondQueue) {
 }
 
 void displayQueue(char* msg, QUEUE queue) {
-    CELL *cell = queue.head;
+    CELL* cell = queue.head;
     int count = 0;
 
     printf("%s\n", msg);

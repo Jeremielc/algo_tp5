@@ -6,6 +6,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+#define MAXSOMMET       250
+#define MAXVALUATION    20.0
+#define MAXSUCC         10
 
 typedef int ELEMENT;
 
@@ -25,16 +31,44 @@ typedef struct QUEUE {
     CELL* tail;
 } QUEUE;
 
+typedef struct REALATED_COMPONENTS {
+    int* relatedComponents;
+    int nbComponents;
+} REALATED_COMPONENTS;
+
+typedef struct GRAPH {
+    int nbSummit;
+    int nbArc;
+    float** matrix; /* matrice d'adjacence */
+    char* nodeStatus;
+    REALATED_COMPONENTS componentInfo;
+} GRAPH;
+
+typedef struct t_ens {
+    int* parent;
+    int nbElem;
+    int nbClass;
+} t_ens;
+
 //L_ADJ.c
-void affiche_graphe(LADJ);
-void affiche_liste(CELL*);
-LADJ charge_graphe(char*);
-CELL* creer_cellule(int, int, CELL*);
-LADJ init_ladj(int, int);
-LADJ inverse(LADJ);
+void    affiche_graphe(LADJ);
+void    affiche_liste(CELL*);
+LADJ    charge_graphe(char*);
+CELL*   creer_cellule(int, int, CELL*);
+LADJ    init_ladj(int, int);
+LADJ    inverse(LADJ);
 
 //main.c
 
+//queue.c
+QUEUE   add(ELEMENT, QUEUE);
+ELEMENT add_2(QUEUE*);
+void    concat(QUEUE*, QUEUE*);
+void    displayQueue(char*, QUEUE);
+QUEUE   get(QUEUE);
+ELEMENT getHead(QUEUE);
+int     isEmpty(QUEUE);
+QUEUE   newEmptyQueue();
 
 #endif	// HEADER_H
 

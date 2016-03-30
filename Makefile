@@ -9,3 +9,7 @@ L_ADJ : sources/L_ADJ.c
 
 queue : sources/queue.c
 	gcc -c sources/queue.c -std=c99 -Wall
+
+genere_graph : sources/genere_graphe_0.c
+	gcc sources/genere_graphe_0.c -std=c99 -Wall -o genere_graph
+
