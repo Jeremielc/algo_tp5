@@ -25,6 +25,11 @@ typedef struct CELL {
     struct CELL* next;
 } CELL;
 
+/*typedef struct CELL_INT {
+    int value;
+    struct CELL_INT* next;
+} CELL_INT;*/
+
 typedef struct LADJ /* listes d'adjacence */ {
     int nbSom;
     int nbArc;
@@ -34,8 +39,8 @@ typedef struct LADJ /* listes d'adjacence */ {
 
 typedef struct QUEUE {
     int size;
-    CELL* head;
-    CELL* tail;
+    CELL/*_INT*/* head;
+    CELL/*_INT*/* tail;
 } QUEUE;
 
 typedef struct REALATED_COMPONENTS {

@@ -50,6 +50,12 @@ LADJ init_ladj(int nsom, int nar) /* allocation dynamique et initialisation */ {
     graph.nbSom = nsom;
     graph.nbArc = nar;
     graph.tab = (CELL* *) calloc(nsom, sizeof (CELL*));
+    
+    //Initialisation du tableau du nom des predecesseurs
+    graph.predNumber = (int*) malloc(graph.nbSom * sizeof (int));
+    for (int i = 0; i < graph.nbSom; i++) {
+        graph.predNumber[i] = 0;
+    }
 
     if (graph.tab == NULL) {
         exit(-1);
