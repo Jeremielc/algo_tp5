@@ -1,3 +1,276 @@
-gcc -c sources/L_ADJ.c -std=c99 -Wall
-gcc -c sources/queue.c -std=c99 -Wall
-gcc -c sources/main.c -std=c99 -Wall
+##### Marquage topologique possible #####
+./output graph_possible.txt
+
+Noeud 0 : 0
+Noeud 1 : 0
+Noeud 2 : 2
+Noeud 3 : 2
+Noeud 4 : 1
+Noeud 5 : 1
+Noeud 6 : 2
+Noeud 7 : 2
+Noeud 8 : 2
+
+Numero de sommet : 0
+Numero de sommet : 1
+Numero de sommet : 5
+Numero de sommet : 4
+Numero de sommet : 2
+Numero de sommet : 3
+Numero de sommet : 7
+Numero de sommet : 6
+Numero de sommet : 8
+
+Topologie possible
+
+##### Marquage topologique impossible #####
+./output graph_impossible.txt
+
+Noeud 0 : 5
+Noeud 1 : 6
+Noeud 2 : 4
+Noeud 3 : 6
+Noeud 4 : 2
+Noeud 5 : 6
+Noeud 6 : 1
+Noeud 7 : 1
+Noeud 8 : 3
+Noeud 9 : 6
+Noeud 10 : 2
+Noeud 11 : 1
+Noeud 12 : 5
+Noeud 13 : 3
+Noeud 14 : 2
+Noeud 15 : 5
+Noeud 16 : 6
+Noeud 17 : 4
+Noeud 18 : 3
+Noeud 19 : 4
+Noeud 20 : 3
+Noeud 21 : 4
+Noeud 22 : 3
+Noeud 23 : 5
+Noeud 24 : 1
+Noeud 25 : 3
+Noeud 26 : 7
+Noeud 27 : 8
+Noeud 28 : 0
+Noeud 29 : 3
+Noeud 30 : 4
+Noeud 31 : 5
+Noeud 32 : 3
+Noeud 33 : 4
+Noeud 34 : 0
+Noeud 35 : 4
+Noeud 36 : 5
+Noeud 37 : 7
+Noeud 38 : 5
+Noeud 39 : 1
+Noeud 40 : 1
+Noeud 41 : 2
+Noeud 42 : 5
+Noeud 43 : 4
+Noeud 44 : 3
+Noeud 45 : 5
+Noeud 46 : 6
+Noeud 47 : 4
+Noeud 48 : 3
+Noeud 49 : 1
+Noeud 50 : 2
+Noeud 51 : 3
+Noeud 52 : 5
+Noeud 53 : 4
+Noeud 54 : 4
+Noeud 55 : 6
+Noeud 56 : 4
+Noeud 57 : 0
+Noeud 58 : 3
+Noeud 59 : 6
+Noeud 60 : 4
+Noeud 61 : 5
+Noeud 62 : 3
+Noeud 63 : 6
+Noeud 64 : 4
+Noeud 65 : 3
+Noeud 66 : 4
+Noeud 67 : 8
+Noeud 68 : 2
+Noeud 69 : 6
+Noeud 70 : 3
+Noeud 71 : 3
+Noeud 72 : 3
+Noeud 73 : 4
+Noeud 74 : 5
+Noeud 75 : 3
+Noeud 76 : 3
+Noeud 77 : 3
+Noeud 78 : 3
+Noeud 79 : 2
+Noeud 80 : 5
+Noeud 81 : 3
+Noeud 82 : 7
+Noeud 83 : 6
+Noeud 84 : 6
+Noeud 85 : 2
+Noeud 86 : 5
+Noeud 87 : 3
+Noeud 88 : 5
+Noeud 89 : 4
+Noeud 90 : 3
+Noeud 91 : 4
+Noeud 92 : 4
+Noeud 93 : 3
+Noeud 94 : 3
+Noeud 95 : 4
+Noeud 96 : 5
+Noeud 97 : 2
+Noeud 98 : 2
+Noeud 99 : 4
+Noeud 100 : 3
+Noeud 101 : 3
+Noeud 102 : 0
+Noeud 103 : 5
+Noeud 104 : 3
+Noeud 105 : 5
+Noeud 106 : 3
+Noeud 107 : 0
+Noeud 108 : 6
+Noeud 109 : 2
+Noeud 110 : 8
+Noeud 111 : 4
+Noeud 112 : 1
+Noeud 113 : 4
+Noeud 114 : 4
+Noeud 115 : 3
+Noeud 116 : 3
+Noeud 117 : 5
+Noeud 118 : 5
+Noeud 119 : 5
+Noeud 120 : 0
+Noeud 121 : 3
+Noeud 122 : 2
+Noeud 123 : 6
+Noeud 124 : 1
+Noeud 125 : 4
+Noeud 126 : 3
+Noeud 127 : 7
+Noeud 128 : 2
+Noeud 129 : 5
+Noeud 130 : 1
+Noeud 131 : 0
+Noeud 132 : 6
+Noeud 133 : 1
+Noeud 134 : 5
+Noeud 135 : 1
+Noeud 136 : 5
+Noeud 137 : 0
+Noeud 138 : 3
+Noeud 139 : 1
+Noeud 140 : 2
+Noeud 141 : 4
+Noeud 142 : 3
+Noeud 143 : 6
+Noeud 144 : 5
+Noeud 145 : 1
+Noeud 146 : 3
+Noeud 147 : 2
+Noeud 148 : 2
+Noeud 149 : 6
+Noeud 150 : 2
+Noeud 151 : 5
+Noeud 152 : 1
+Noeud 153 : 3
+Noeud 154 : 2
+Noeud 155 : 4
+Noeud 156 : 391
+Noeud 157 : 3
+Noeud 158 : 3
+Noeud 159 : 4
+Noeud 160 : 5
+Noeud 161 : 6
+Noeud 162 : 3
+Noeud 163 : 1
+Noeud 164 : 5
+Noeud 165 : 3
+Noeud 166 : 2
+Noeud 167 : 2
+Noeud 168 : 4
+Noeud 169 : 2
+Noeud 170 : 3
+Noeud 171 : 3
+Noeud 172 : 2
+Noeud 173 : 3
+Noeud 174 : 1
+Noeud 175 : 2
+Noeud 176 : 2
+Noeud 177 : 2
+Noeud 178 : 3
+Noeud 179 : 1
+Noeud 180 : 4
+Noeud 181 : 5
+Noeud 182 : 2
+Noeud 183 : 4
+Noeud 184 : 1
+Noeud 185 : 2
+Noeud 186 : 4
+Noeud 187 : 1
+Noeud 188 : 2
+Noeud 189 : 2
+Noeud 190 : 3
+Noeud 191 : 3
+Noeud 192 : 1
+Noeud 193 : 3
+Noeud 194 : 4
+Noeud 195 : 0
+Noeud 196 : 2
+Noeud 197 : 1
+Noeud 198 : 5
+Noeud 199 : 1
+Noeud 200 : 1
+Noeud 201 : 2
+Noeud 202 : 3
+Noeud 203 : 2
+Noeud 204 : 6
+Noeud 205 : 4
+Noeud 206 : 3
+Noeud 207 : 2
+Noeud 208 : 6
+Noeud 209 : 4
+Noeud 210 : 2
+Noeud 211 : 7
+Noeud 212 : 2
+Noeud 213 : 6
+Noeud 214 : 2
+Noeud 215 : 0
+Noeud 216 : 3
+Noeud 217 : 1
+Noeud 218 : 2
+Noeud 219 : 2
+Noeud 220 : 3
+Noeud 221 : 6
+Noeud 222 : 4
+Noeud 223 : 2
+Noeud 224 : 3
+Noeud 225 : 1
+Noeud 226 : 0
+Noeud 227 : 3
+Noeud 228 : 2
+Noeud 229 : 5
+Noeud 230 : 1
+Noeud 231 : 7
+Noeud 232 : 5
+
+Numero de sommet : 28
+Numero de sommet : 34
+Numero de sommet : 57
+Numero de sommet : 102
+Numero de sommet : 107
+Numero de sommet : 120
+Numero de sommet : 131
+Numero de sommet : 137
+Numero de sommet : 195
+Numero de sommet : 215
+Numero de sommet : 226
+Numero de sommet : 184
+
+Topologie impossible

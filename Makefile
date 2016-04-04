@@ -17,3 +17,6 @@ main : sources/main.c
 genere_graph : sources/genere_graphe_0.c
 	gcc sources/genere_graphe_0.c -std=c99 -Wall -o genere_graph
 
+zip : 
+	zip -r TP5_Marquage_Topographique_Jeremie_Leclerc_Pierrick_Hue.zip sources/ genere_graph output graph_*.txt trace.txt Makefile
+	
