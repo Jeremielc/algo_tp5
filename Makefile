@@ -1,9 +1,7 @@
 all : L_ADJ queue main
 	gcc L_ADJ.o queue.o main.o -std=c99 -Wall -o output
 	rm -rf *.o
-	./output graphe_alea.txt > trace.txt
-	nano trace.txt
-
+	
 L_ADJ : sources/L_ADJ.c
 	gcc -c sources/L_ADJ.c -std=c99 -Wall
 

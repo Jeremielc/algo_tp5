@@ -11,7 +11,7 @@ int isEmpty(QUEUE queue) {
     return !queue.head;
 }
 
-ELEMENT getHead(QUEUE queue)
+ELEMENT getHeadValue(QUEUE queue)
 /* ATTENTION: consulter la tête d'une File vide n'a pas de sens */ {
     if (isEmpty(queue)) {
         printf("Error - The queue is empty\n");

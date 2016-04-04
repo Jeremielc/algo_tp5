@@ -6,3 +6,4 @@ Noeud 4 : 2
 Noeud 5 : 0
 
 Numero de sommet sans predecesseur : 5
+Topographie possible

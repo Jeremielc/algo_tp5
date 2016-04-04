@@ -47,8 +47,8 @@ void affiche_liste(CELL* p) {
 LADJ init_ladj(int nsom, int nar) /* allocation dynamique et initialisation */ {
     LADJ graph;
 
-    graph.nbsom = nsom;
-    graph.nbar = nar;
+    graph.nbSom = nsom;
+    graph.nbArc = nar;
     graph.tab = (CELL* *) calloc(nsom, sizeof (CELL*));
 
     if (graph.tab == NULL) {
@@ -61,7 +61,7 @@ LADJ init_ladj(int nsom, int nar) /* allocation dynamique et initialisation */ {
 void affiche_graphe(LADJ graph) {
     int i;
 
-    for (i = 0; i < graph.nbsom; i++) {
+    for (i = 0; i < graph.nbSom; i++) {
         if (graph.tab[i]) {
             printf("Successeurs de %d : ", i);
             affiche_liste(graph.tab[i]);
@@ -102,9 +102,9 @@ LADJ inverse(LADJ graph) {
     int i;
     CELL* p, *q;
 
-    graph_inverse = init_ladj(graph.nbsom, graph.nbar);
+    graph_inverse = init_ladj(graph.nbSom, graph.nbArc);
     
-    for (i = 0; i < graph.nbsom; i++) {
+    for (i = 0; i < graph.nbSom; i++) {
         p = graph.tab[i];
         
         while (p) {

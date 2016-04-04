@@ -26,8 +26,8 @@ typedef struct CELL {
 } CELL;
 
 typedef struct LADJ /* listes d'adjacence */ {
-    int nbsom;
-    int nbar;
+    int nbSom;
+    int nbArc;
     CELL** tab;
     int* predNumber;
 } LADJ;
@@ -69,6 +69,7 @@ LADJ    inverse(LADJ);
 bool topologicalMarking(LADJ*);
 LADJ load_graph(char*);
 void displayList(QUEUE*);
+bool hasPredecessor(int*, int);
 
 //queue.c
 QUEUE   add(ELEMENT, QUEUE);
@@ -76,7 +77,7 @@ ELEMENT add_2(QUEUE*);
 void    concat(QUEUE*, QUEUE*);
 void    displayQueue(char*, QUEUE);
 QUEUE   get(QUEUE);
-ELEMENT getHead(QUEUE);
+ELEMENT getHeadValue(QUEUE);
 int     isEmpty(QUEUE);
 QUEUE   newEmptyQueue();
 
