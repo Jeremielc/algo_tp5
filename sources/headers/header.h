@@ -25,10 +25,10 @@ typedef struct CELL {
     struct CELL* next;
 } CELL;
 
-/*typedef struct CELL_INT {
+typedef struct CELL_INT {
     int value;
     struct CELL_INT* next;
-} CELL_INT;*/
+} CELL_INT;
 
 typedef struct LADJ /* listes d'adjacence */ {
     int nbSom;
@@ -39,9 +39,15 @@ typedef struct LADJ /* listes d'adjacence */ {
 
 typedef struct QUEUE {
     int size;
-    CELL/*_INT*/* head;
-    CELL/*_INT*/* tail;
+    CELL* head;
+    CELL* tail;
 } QUEUE;
+
+typedef struct QUEUE_INT {
+    int size;
+    CELL_INT* head;
+    CELL_INT* tail;
+} QUEUE_INT;
 
 typedef struct REALATED_COMPONENTS {
     int* relatedComponents;
@@ -73,8 +79,6 @@ LADJ    inverse(LADJ);
 //main.c
 bool topologicalMarking(LADJ*);
 LADJ load_graph(char*);
-void displayList(QUEUE*);
-bool hasPredecessor(int*, int);
 
 //queue.c
 QUEUE   add(ELEMENT, QUEUE);
@@ -85,6 +89,14 @@ QUEUE   get(QUEUE);
 ELEMENT getHeadValue(QUEUE);
 int     isEmpty(QUEUE);
 QUEUE   newEmptyQueue();
+
+//perso_queue.c
+QUEUE_INT   add_int(int, QUEUE_INT);
+void        displayList(QUEUE_INT*);
+int         getHeadValue_int(QUEUE_INT);
+QUEUE_INT   get_int(QUEUE_INT);
+int         isEmpty_int(QUEUE_INT);
+QUEUE_INT   newEmptyQueue_int();
 
 #endif	// HEADER_H
 

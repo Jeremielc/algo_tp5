@@ -20,15 +20,10 @@ int main(int argc, char** argv) {
 
     bool topographyIsPossible = topologicalMarking(&graph);
 
-    for (int i = 0; i < graph.nbSom; i++) {
-        printf("Noeud %d : %d\n", i, graph.predNumber[i]);
-    }
-    printf("\n");
-
     if (topographyIsPossible) {
-        printf("%s\n", "Topographie possible");
+        printf("%s\n", "Topologie possible");
     } else {
-        printf("%s\n", "Topographie impossible");
+        printf("%s\n", "Topologie impossible");
     }
 
     free(graph.predNumber);
@@ -41,48 +36,52 @@ bool topologicalMarking(LADJ* graph) {
         return false;
     }
 
-    QUEUE summitWithoutPredQueue;
-    bool topographyIsPossible = true;
+    QUEUE_INT summitWithoutPredQueue, topologicalQueue;
+    bool topologyIsPossible = false;
 
-
-    summitWithoutPredQueue = newEmptyQueue();
+    summitWithoutPredQueue = newEmptyQueue_int();
+    topologicalQueue = newEmptyQueue_int();
 
     // 1 - Recherche des sommets sans prédecesseurs
     for (int i = 0; i < graph->nbSom; i++) {
         if (graph->predNumber[i] == 0) {
-            summitWithoutPredQueue = add(i, summitWithoutPredQueue);
+            summitWithoutPredQueue = add_int(i, summitWithoutPredQueue);
         }
-    }
-
-    if (isEmpty(summitWithoutPredQueue)) {
-        topographyIsPossible = false;
-    } else {
-        displayList(&summitWithoutPredQueue);
     }
 
     // 2 - Reconstruction du graphe
     int value = 0;
     CELL* temp;
 
-    while (!isEmpty(summitWithoutPredQueue)) {
-        value = getHeadValue(summitWithoutPredQueue);
+    while (!isEmpty_int(summitWithoutPredQueue)) {
+        value = getHeadValue_int(summitWithoutPredQueue);
         temp = graph->tab[value];
-        printf("%s %d\n", "temp->extremity :", temp->extremity);
+        
+        /*if (temp) {
+            printf("%s %d\n", "temp->extremity :", temp->extremity);
+        }*/
 
         while (temp != NULL) {
             graph->predNumber[temp->extremity] = graph->predNumber[temp->extremity] - 1;
-            
+
             if (graph->predNumber[temp->extremity] == 0) {
-                summitWithoutPredQueue = add(temp->extremity, summitWithoutPredQueue);
+                summitWithoutPredQueue = add_int(temp->extremity, summitWithoutPredQueue);
             }
-            
+
             temp = temp->next;
         }
-
-        summitWithoutPredQueue = get(summitWithoutPredQueue); //Utiliser get pour retirer le noeud dans la file.
+        
+        topologicalQueue = add_int(value, topologicalQueue);
+        summitWithoutPredQueue = get_int(summitWithoutPredQueue); //Utiliser get pour retirer le noeud dans la file.
+    }
+    
+    displayList(&topologicalQueue);
+    
+    if (topologicalQueue.size == graph->nbSom) {
+        topologyIsPossible = true;
     }
 
-    return topographyIsPossible;
+    return topologyIsPossible;
 }
 
 LADJ load_graph(char* fileName) {
@@ -111,23 +110,4 @@ LADJ load_graph(char* fileName) {
     fclose(canal);
 
     return graph;
-}
-
-void displayList(QUEUE* queue) {
-    CELL* cell = queue->head;
-
-    while (cell != NULL) {
-        printf("Numero de sommet sans predecesseur : %d\n", cell->value);
-        cell = cell->next;
-    }
-}
-
-bool hasPredecessor(int* predNumber, int nbSom) {
-    for (int i = 0; i < nbSom; i++) {
-        if (predNumber[i] != 0) {
-            return true;
-        }
-    }
-
-    return false;
 }

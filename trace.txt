@@ -1,9 +1,3 @@
-Noeud 0 : 1
-Noeud 1 : 2
-Noeud 2 : 1
-Noeud 3 : 2
-Noeud 4 : 2
-Noeud 5 : 0
-
-Numero de sommet sans predecesseur : 5
-Topographie possible
+gcc -c sources/L_ADJ.c -std=c99 -Wall
+gcc -c sources/queue.c -std=c99 -Wall
+gcc -c sources/main.c -std=c99 -Wall
